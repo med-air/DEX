@@ -1,4 +1,4 @@
-# DEX: Demonstration-Guided Reinforcement Learning with Efficient Exploration for Task Automation of Surgical Robot
+# DEX: Demonstration-Guided RL with Efficient Exploration for Task Automation of Surgical Robot
 This is the official PyTorch implementation of the paper "**Demonstration-Guided Reinforcement Learning with
 Efficient Exploration for Task Automation of Surgical Robot**" (ICRA 2023). 
 <p align="left">

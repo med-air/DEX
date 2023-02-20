@@ -124,7 +124,7 @@ dex
   |
   |- configs               # experiment configs 
   |    |- train.yaml       # configs for rl training
-  |    |- agent   		     # configs for each algorithm (dex, ddpg, ddpgbc, etc.)
+  |    |- agent            # configs for each algorithm (dex, ddpg, ddpgbc, etc.)
   |
   |- modules               # reusable architecture components
   |    |- critic.py        # basic critic implementations (eg MLP-based critic)

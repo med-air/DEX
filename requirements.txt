@@ -1,0 +1,15 @@
+hydra-core
+torch
+torchvision
+moviepy
+imageio
+
+# RL
+gym==0.15.6
+mpi4py
+
+# Log
+colorlog
+termcolor
+wandb
+

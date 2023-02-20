@@ -1,0 +1,3 @@
+[submodule "SurRoL"]
+	path = SurRoL
+	url = https://github.com/med-air/SurRoL.git

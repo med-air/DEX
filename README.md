@@ -131,6 +131,7 @@ dex
   |
   |- configs               # experiment configs 
   |    |- train.yaml       # configs for rl training
+  |    |- eval.yaml        # configs for rl evaluation
   |    |- agent            # configs for each algorithm (dex, ddpg, ddpgbc, etc.)
   |
   |- modules               # reusable architecture components
@@ -145,6 +146,7 @@ dex
   |
   |- utils                 # general and rl utilities, pytorch / visualization utilities etc
   |- train.py              # experiment launcher
+  |- eval.py               # evaluation launcher
 ```
 
 # Contact

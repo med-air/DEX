@@ -97,6 +97,13 @@ mpirun -np 4 python -m train agent=dex task=NeedlePick-v0 use_wb=True
 ```
 It should be noted that parallel training will lead to inconsistent performance, which require hyperparameters tuning.
 
+## Evaluation Commands
+We also provide a script for evaluate the saved model. The directory of the to-be-evaluated model should be included in the configuration file [```eval.yaml```](dex/configs/eval.yaml), where the checkpoint is specified by `ckpt_episode`. For instance:
+- Eval model trained by **DEX** in NeedlePick-v0:
+```bash
+python3 eval.py task=NeedlePick-v0 agent=dex ckpt_episode=latest
+```
+
 # Starting to Modify the Code
 ## Modifying the hyperparameters
 The default hyperparameters are defined in `dex/configs`, where [```train.yaml```](dex/configs/train.yaml) defines the experiment settings and YAML file in the directory [```agent```](dex/configs/agent) defines the hyperparameters of each method. Modifications to these parameters can be directly defined in the experiment or agent config files, or passed through the terminal command. For example:
@@ -141,4 +148,4 @@ dex
 ```
 
 # Contact
-For any questions, please feel free to email thuang22@cse.cuhk.edu.hk
+For any questions, please feel free to email taou.cs13@gmail.com.

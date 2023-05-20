@@ -169,13 +169,9 @@ class RLTrainer(BaseTrainer):
                 log('ETA', togo_train_time)
             if self.cfg.use_wb:
                 self.wb.log_outputs(metrics, None, log_images=False, step=self.global_step, is_train=True)
-            
-    def eval_ckpt(self):
-        '''Eval checkpoint.'''
-        CheckpointHandler.load_checkpoint(
-            self.cfg.ckpt_dir, self.agent, self.device, self.cfg.ckpt_episode
-        )
-        
+
+    def eval(self):
+        '''Eval agent.'''
         eval_rollout_storage = RolloutStorage()
         for _ in range(self.cfg.n_eval_episodes):
             episode, _, env_steps = self.eval_sampler.sample_episode(is_train=False, render=True)
@@ -195,10 +191,19 @@ class RLTrainer(BaseTrainer):
                 log('episode_length', env_steps)
                 log('episode', self.global_episode)
                 log('step', self.global_step)
-                self.termlog.info(f'Successful rate: {rollout_status.avg_success_rate}')
 
         del eval_rollout_storage
-        
+        return rollout_status.avg_success_rate
+
+    def eval_ckpt(self):
+        '''Eval checkpoint.'''
+        if self.is_chef:
+            CheckpointHandler.load_checkpoint(
+                self.cfg.ckpt_dir, self.agent, self.device, self.cfg.ckpt_episode
+            )
+            avg_success_rate = self.eval()
+            self.termlog.info(f'Successful rate: {avg_success_rate}')
+                
     @property
     def global_step(self):
         return self._global_step
